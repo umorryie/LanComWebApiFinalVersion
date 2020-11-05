@@ -8,7 +8,6 @@ using System.Xml.Serialization;
 
 namespace CountryWebApis.Model
 {
-    [Table("Country", Schema = "dbo")]
     public class Country
     {
         [Key]

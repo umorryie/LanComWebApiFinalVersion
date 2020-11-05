@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CountryWebApis.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ namespace LancomWebApi.DataContext
 {
     public class DataBaseContext: DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=StoreDB;");
-        }
+        public DbSet<City> City { get; set; }
+        public DbSet<Country> Country { get; set; }
+
+        public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options) { }
     }
 }

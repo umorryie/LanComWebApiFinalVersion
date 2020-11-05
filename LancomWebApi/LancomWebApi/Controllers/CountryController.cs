@@ -11,6 +11,10 @@ namespace LancomWebApi.Controllers
     [ApiController]
     public class CountryController : ControllerBase
     {
+        public CountryController()
+        {
+
+        }
         [HttpGet]
         public bool getCountryList()
         {

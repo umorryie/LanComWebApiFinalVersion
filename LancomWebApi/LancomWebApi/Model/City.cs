@@ -8,7 +8,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CountryWebApis.Model
 {
-    [Table("City", Schema = "dbo")]
     public class City
     {
         [Key]
@@ -16,7 +15,7 @@ namespace CountryWebApis.Model
         public int CountryId { get; set; }
         public string Name { get; set; }
         public int TemperatureCelsius { get; set; }
-        public Date Date { get; set; }
+        public DateTime Date { get; set; }
         public DateTime TimeStamp { get; set; }
     }
 }
