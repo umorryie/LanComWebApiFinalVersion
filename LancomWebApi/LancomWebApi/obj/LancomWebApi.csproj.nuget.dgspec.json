@@ -37,6 +37,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.OData.Edm": {
+              "target": "Package",
+              "version": "[7.7.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

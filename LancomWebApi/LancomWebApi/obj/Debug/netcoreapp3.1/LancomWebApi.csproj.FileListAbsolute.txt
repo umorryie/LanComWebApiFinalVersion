@@ -10,11 +10,13 @@ C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\La
 C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.csprojAssemblyReference.cache
 C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.AssemblyInfoInputs.cache
 C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.AssemblyInfo.cs
-C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.csproj.CoreCompileInputs.cache
-C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.RazorTargetAssemblyInfo.cache
 C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\staticwebassets\LancomWebApi.StaticWebAssets.Manifest.cache
 C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\staticwebassets\LancomWebApi.StaticWebAssets.xml
 C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.dll
 C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.pdb
 C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.genruntimeconfig.cache
+C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\bin\Debug\netcoreapp3.1\Microsoft.OData.Edm.dll
+C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.csproj.CoreCompileInputs.cache
+C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\pesja\OneDrive\Desktop\lancom Web Api MEDIUM NOVO PRAVO\LancomWebApi\LancomWebApi\obj\Debug\netcoreapp3.1\LancomWebApi.csproj.CopyComplete

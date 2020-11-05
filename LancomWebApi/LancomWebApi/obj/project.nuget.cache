@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9CtmAodK8bx9xLoKK8cSknnsY/BFIxuvzSDJnq9DkzZwLZs4HUnSZ/QXK+dOLJBm7Fh/bC8PLO6aAQlShWcFcw==",
+  "dgSpecHash": "G5lFC7XN4fXhO0cEYP48549nzrW9FFEEH7TVVMml6d50Ubsquc6NSH8TC+hMwhl/VeBn/pfuMk6MlE+jREP8og==",
   "success": true,
   "projectFilePath": "C:\\Users\\pesja\\OneDrive\\Desktop\\lancom Web Api MEDIUM NOVO PRAVO\\LancomWebApi\\LancomWebApi\\LancomWebApi.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\pesja\\.nuget\\packages\\microsoft.odata.edm\\7.7.2\\microsoft.odata.edm.7.7.2.nupkg.sha512"
+  ],
   "logs": []
 }

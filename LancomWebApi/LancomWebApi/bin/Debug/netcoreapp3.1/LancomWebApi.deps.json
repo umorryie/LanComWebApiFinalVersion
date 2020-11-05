@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "LancomWebApi/1.0.0": {
         "dependencies": {
+          "Microsoft.OData.Edm": "7.7.2",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -312,6 +313,17 @@
         },
         "compile": {
           "LancomWebApi.dll": {}
+        }
+      },
+      "Microsoft.OData.Edm/7.7.2": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.OData.Edm.dll": {
+            "assemblyVersion": "7.7.2.0",
+            "fileVersion": "7.7.2.10923"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.OData.Edm.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -2013,6 +2025,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Microsoft.OData.Edm/7.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GYtbLIRetY5XkpQ2yFeOEmVm2zjUCkZnMrvsWURZ1JQE2rE8fKBfaLQbzA5+A/arVwl3ZsN40Z7vzhaMBjKgvw==",
+      "path": "microsoft.odata.edm/7.7.2",
+      "hashPath": "microsoft.odata.edm.7.7.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
       "type": "referenceassembly",
