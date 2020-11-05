@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CountryWebApis.Model
 {
+    [Table("City", Schema = "dbo")]
     public class City
     {
         [Key]
