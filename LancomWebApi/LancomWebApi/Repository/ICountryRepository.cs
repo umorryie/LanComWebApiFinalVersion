@@ -11,5 +11,7 @@ namespace LancomWebApi.Repository
         public string CreateCountries(string[] countries);
 
         public List<Country> GetCountries();
+
+        public Country GetCountryById(int id);
     }
 }

@@ -33,7 +33,8 @@ namespace LancomWebApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<int>("TemperatureCelsius")
                         .HasColumnType("int");
@@ -42,6 +43,8 @@ namespace LancomWebApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.ToTable("City");
                 });
@@ -59,6 +62,15 @@ namespace LancomWebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Country");
+                });
+
+            modelBuilder.Entity("CountryWebApis.Model.City", b =>
+                {
+                    b.HasOne("CountryWebApis.Model.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

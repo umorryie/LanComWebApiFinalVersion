@@ -21,15 +21,24 @@ namespace LancomWebApi.Controllers
         }
 
         [HttpPost]
+        [Route("CreateCountries")]
         public string CreateCountries([FromBody] string[] countries )
         {
             return _countryRepository.CreateCountries(countries);
         }
 
         [HttpGet]
+        [Route("GetCountries")]
         public List<Country> GetCountries()
         {
             return _countryRepository.GetCountries();
+        }
+
+        [HttpPost]
+        [Route("GetCountryById")]
+        public Country GetCountryById([FromBody] int id)
+        {
+            return _countryRepository.GetCountryById(id);
         }
     }
 }

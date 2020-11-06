@@ -1,4 +1,5 @@
 ﻿using CountryWebApis.Model;
+using LancomWebApi.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace LancomWebApi.Repository
 {
     public interface ICityRepository
     {
-        public string CreateCity(string city);
+        public string CreateCity(CityHelper city);
 
         public List<City> ListCities();
     }

@@ -53,5 +53,18 @@ namespace LancomWebApi.Repository
         {
             return _database.Country.ToList<Country>();
         }
+
+        public Country GetCountryById(int id)
+        {
+            var countries = _database.Country.ToList<Country>();
+            var requiredCountry = countries.FirstOrDefault(countryId => countryId.Id == id);
+
+            if(requiredCountry == null)
+            {
+                throw new Exception($"Country with {id} does not exist in database. First add country and then add its city");
+            }
+
+            return requiredCountry;
+        }
     }
 }

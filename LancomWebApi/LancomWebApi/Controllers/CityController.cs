@@ -21,15 +21,22 @@ namespace LancomWebApi.Controllers
         }
 
         [HttpPost]
-        public string CreateCity([FromBody] string city)
+        [Route("CreateCity")]
+        public string CreateCity([FromBody] CityHelper city)
         {
             return _cityRepository.CreateCity(city);
         }
 
         [HttpGet]
+        [Route("ListCities")]
         public List<City> ListCities()
         {
             return _cityRepository.ListCities();
         }
+    }
+    public class CityHelper
+    {
+        public string name { get; set; }
+        public int coutryId { get; set; }
     }
 }

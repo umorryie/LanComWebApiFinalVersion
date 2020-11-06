@@ -1,4 +1,5 @@
 ﻿using CountryWebApis.Model;
+using LancomWebApi.Controllers;
 using LancomWebApi.DataContext;
 using System;
 using System.Collections.Generic;
@@ -10,22 +11,24 @@ namespace LancomWebApi.Repository
     public class CityRepository: ICityRepository
     {
         private DataBaseContext _database;
+        private ICountryRepository _countryRepository;
 
-        public CityRepository(DataBaseContext dataBase)
+        public CityRepository(DataBaseContext dataBase, ICountryRepository countryRepository)
         {
             _database = dataBase;
+            _countryRepository = countryRepository;
         }
 
-        public string CreateCity(string city)
+        public string CreateCity(CityHelper city)
         {
-            if (string.IsNullOrEmpty(city) || string.IsNullOrWhiteSpace(city))
+            if (string.IsNullOrEmpty(city.name) || string.IsNullOrWhiteSpace(city.name))
             {
                 return "No city provided.";
             }
 
             try
             {
-                var alreadyExistingCountry = _database.City.ToList<City>().FirstOrDefault(neke => neke.Name == city);
+                var alreadyExistingCountry = _database.City.ToList<City>().FirstOrDefault(singleCity => singleCity.Name == city.name);
 
                 if (alreadyExistingCountry != null)
                 {
@@ -35,7 +38,8 @@ namespace LancomWebApi.Repository
                 Random rnd = new Random();
                 var newCity = new City()
                 {
-                    Name = city,
+                    Name = city.name,
+                    CountryId = _countryRepository.GetCountryById(city.coutryId).Id,
                     TemperatureCelsius = rnd.Next(-10, 30),
                     Date = new DateTime(),
                     TimeStamp = new DateTime(),

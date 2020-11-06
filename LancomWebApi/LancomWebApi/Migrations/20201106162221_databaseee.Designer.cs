@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LancomWebApi.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20201105230800_MyFirstMigration")]
-    partial class MyFirstMigration
+    [Migration("20201106162221_databaseee")]
+    partial class databaseee
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,7 +35,8 @@ namespace LancomWebApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(100)")
+                        .HasMaxLength(100);
 
                     b.Property<int>("TemperatureCelsius")
                         .HasColumnType("int");
@@ -44,6 +45,8 @@ namespace LancomWebApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.ToTable("City");
                 });
@@ -61,6 +64,15 @@ namespace LancomWebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Country");
+                });
+
+            modelBuilder.Entity("CountryWebApis.Model.City", b =>
+                {
+                    b.HasOne("CountryWebApis.Model.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
