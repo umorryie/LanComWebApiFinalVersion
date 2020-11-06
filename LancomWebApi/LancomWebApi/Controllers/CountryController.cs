@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CountryWebApis.Model;
 using LancomWebApi.DataContext;
+using LancomWebApi.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,49 +14,22 @@ namespace LancomWebApi.Controllers
     [ApiController]
     public class CountryController : ControllerBase
     {
-        private DataBaseContext _database;
-        public CountryController(DataBaseContext dataBase)
+        private ICountryRepository _countryRepository;
+        public CountryController(ICountryRepository countryRepository)
         {
-            _database = dataBase;
+            _countryRepository = countryRepository;
         }
+
         [HttpPost]
         public string CreateCountries([FromBody] string[] countries )
         {
-            if (countries.Length == 0)
-            {
-                return "No countries provided.";
-            }
-
-            try
-            {
-                var counter = 0;
-
-                foreach(string country in countries.Distinct().ToList())
-                {
-                    var alreadyExistingCountry = _database.Country.ToList<Country>().FirstOrDefault(neke => neke.Name == country);
-                    if (alreadyExistingCountry == null)
-                    {
-                        counter += 1;
-                        _database.Country.Add(new Country()
-                        {
-                            Name = country
-                        });
-                    }
-                }
-                _database.SaveChanges();
-
-                return counter > 0 ? "Countries successfully inserted into database." : "All countries are already in data base";
-            }
-            catch (Exception e)
-            {
-                return @$"Something went wrong. Error: {e.Message}";
-            }
+            return _countryRepository.CreateCountries(countries);
         }
 
         [HttpGet]
         public List<Country> GetCountries()
         {
-            return _database.Country.ToList<Country>();
+            return _countryRepository.GetCountries();
         }
     }
 }
