@@ -34,6 +34,7 @@ namespace LancomWebApi
             });
             services.AddControllers();
             services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddScoped<ICityRepository, CityRepository>();
             services.AddSwaggerGen();
         }
 

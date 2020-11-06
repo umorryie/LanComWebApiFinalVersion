@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CountryWebApis.Model;
 using LancomWebApi.DataContext;
+using LancomWebApi.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,52 +14,22 @@ namespace LancomWebApi.Controllers
     [ApiController]
     public class CityController : ControllerBase
     {
-        private DataBaseContext _database;
-        public CityController(DataBaseContext dataBase)
+        private ICityRepository _cityRepository;
+        public CityController(ICityRepository cityRepository)
         {
-            _database = dataBase;
+            _cityRepository = cityRepository;
         }
 
         [HttpPost]
         public string CreateCity([FromBody] string city)
         {
-            if (string.IsNullOrEmpty(city) || string.IsNullOrWhiteSpace(city))
-            {
-                return "No city provided.";
-            }
-
-            try
-            {
-                var alreadyExistingCountry = _database.City.ToList<City>().FirstOrDefault(neke => neke.Name == city);
-
-                if(alreadyExistingCountry != null)
-                {
-                    return "City already exists in data base.";
-                }
-
-                Random rnd = new Random();
-                var newCity = new City()
-                {
-                    Name = city,
-                    TemperatureCelsius = rnd.Next(-10, 30),
-                    Date = new DateTime(),
-                    TimeStamp = new DateTime(),
-                };
-                _database.City.Add(newCity);
-                _database.SaveChanges();
-                
-                return "City successfully inserted into database.";
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            return _cityRepository.CreateCity(city);
         }
 
         [HttpGet]
         public List<City> ListCities()
         {
-            return _database.City.ToList<City>();
+            return _cityRepository.ListCities();
         }
     }
 }
