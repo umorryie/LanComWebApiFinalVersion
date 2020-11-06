@@ -20,21 +20,27 @@ namespace LancomWebApi.Controllers
         }
 
         [HttpPost]
-        public string CreateCity()
+        public string CreateCity([FromBody] string city)
         {
             try
             {
+                var alreadyExistingCountry = _database.City.ToList<City>().FirstOrDefault(neke => neke.Name == city);
+                if(alreadyExistingCountry != null)
+                {
+                    return "City already exists in data base.";
+                }
+
+                Random rnd = new Random();
                 var newCity = new City()
                 {
-                    CountryId = 12,
-                    Name = "matej",
-                    TemperatureCelsius = 12,
+                    Name = city,
+                    TemperatureCelsius = rnd.Next(-10, 30),
                     Date = new DateTime(),
                     TimeStamp = new DateTime(),
                 };
                 _database.City.Add(newCity);
                 _database.SaveChanges();
-
+                
                 return "City successfully inserted into database.";
             }
             catch (Exception e)
