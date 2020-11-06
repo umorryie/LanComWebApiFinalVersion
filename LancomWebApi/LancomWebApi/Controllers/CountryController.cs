@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CountryWebApis.Model;
 using LancomWebApi.DataContext;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,10 +18,32 @@ namespace LancomWebApi.Controllers
         {
             _database = dataBase;
         }
-        [HttpGet]
-        public bool getCountryList()
+        [HttpPost]
+        public string CreateCountries([FromBody] string[] countries )
         {
-            return true;
+            try
+            {
+                foreach(string country in countries.Distinct().ToList())
+                {
+                    _database.Country.Add(new Country() 
+                    { 
+                        Name = country
+                    });
+                }
+                _database.SaveChanges();
+                
+                return "Countries successfully inserted into database.";
+            }
+            catch (Exception e)
+            {
+                return @$"Something went wrong. Error: {e.Message}";
+            }
+        }
+
+        [HttpGet]
+        public List<Country> GetCountries()
+        {
+            return _database.Country.ToList<Country>();
         }
     }
 }
