@@ -21,6 +21,11 @@ namespace LancomWebApi.Controllers
         [HttpPost]
         public string CreateCountries([FromBody] string[] countries )
         {
+            if (countries.Length == 0)
+            {
+                return "No countries provided.";
+            }
+
             try
             {
                 var counter = 0;

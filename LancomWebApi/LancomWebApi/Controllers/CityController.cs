@@ -22,9 +22,15 @@ namespace LancomWebApi.Controllers
         [HttpPost]
         public string CreateCity([FromBody] string city)
         {
+            if (string.IsNullOrEmpty(city) || string.IsNullOrWhiteSpace(city))
+            {
+                return "No city provided.";
+            }
+
             try
             {
                 var alreadyExistingCountry = _database.City.ToList<City>().FirstOrDefault(neke => neke.Name == city);
+
                 if(alreadyExistingCountry != null)
                 {
                     return "City already exists in data base.";
