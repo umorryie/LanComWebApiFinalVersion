@@ -23,16 +23,23 @@ namespace LancomWebApi.Controllers
         {
             try
             {
+                var counter = 0;
+
                 foreach(string country in countries.Distinct().ToList())
                 {
-                    _database.Country.Add(new Country() 
-                    { 
-                        Name = country
-                    });
+                    var alreadyExistingCountry = _database.Country.ToList<Country>().FirstOrDefault(neke => neke.Name == country);
+                    if (alreadyExistingCountry == null)
+                    {
+                        counter += 1;
+                        _database.Country.Add(new Country()
+                        {
+                            Name = country
+                        });
+                    }
                 }
                 _database.SaveChanges();
-                
-                return "Countries successfully inserted into database.";
+
+                return counter > 0 ? "Countries successfully inserted into database." : "All countries are already in data base";
             }
             catch (Exception e)
             {
